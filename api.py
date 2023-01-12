@@ -18,3 +18,9 @@ async def register_for_the_webinar(name: str):
     return {
         "message" : f"Dear {name}, you have successfully registeredfor the webinar "
     }
+
+@app.get("/attendees")
+async def retrieve_attendees() -> dict:
+    return {
+        "attendees" : attendes
+    }
