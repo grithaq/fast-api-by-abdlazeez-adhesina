@@ -34,3 +34,14 @@ async def retrieve_attendees_by_name(name: str) -> dict:
     return {
         "messages": "There is no attendee maching this name"
     }
+
+@app.delete("/attendees/{name}/delete")
+async def delete_attendee_from_list(name: str) -> dict:
+    if name in attendes:
+        attendes.remove(name)
+        return {
+            "message" : f"Update attendees : {attendes}"
+        }
+    return {
+        "message": "Attendees doesn't exist"
+    }
