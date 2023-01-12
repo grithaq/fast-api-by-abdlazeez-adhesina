@@ -24,3 +24,13 @@ async def retrieve_attendees() -> dict:
     return {
         "attendees" : attendes
     }
+
+@app.get('/attendees/{name}')
+async def retrieve_attendees_by_name(name: str) -> dict:
+    if name in attendes:
+        return {
+            "Attendees": name
+        }
+    return {
+        "messages": "There is no attendee maching this name"
+    }
